@@ -11,6 +11,6 @@ namespace ApiTests.DTO
         [JsonPropertyName("first_name")]
         public string FirstName { get; set; }
         [JsonPropertyName("last_name")]
-        public int LastName { get; set; }
+        public string LastName { get; set; }
     }
 }
