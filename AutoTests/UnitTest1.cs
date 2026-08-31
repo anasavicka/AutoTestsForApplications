@@ -2,7 +2,7 @@
 using System.Text.Json;
 using ApiTests.DTO;
 
-namespace ApiTests
+namespace ApiTests.AutoTests
 {
     public class UnitTest1
     {
