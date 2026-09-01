@@ -5,16 +5,11 @@ using System.Text.Json.Serialization;
 
 namespace ApiTests.DTO.DapperTestsDTO
 {
-    public record OrderDTO
-    (
-        int id,
-
-        string userId,
-
+    public record OrderDTO(
+        long id,
+        long userId,
         string orderDate,
-
-        int status,
-
-        int totalPrice
+        string status,
+        double totalPrice
     );
 }

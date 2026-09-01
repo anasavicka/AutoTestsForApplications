@@ -8,9 +8,9 @@ namespace ApiTests.Preconditions
 {
     public class DataBasePreconditions
     {
-        public ServiceProvider Provider {  get; }
+        public ServiceProvider Provider { get; }
 
-        public DataBasePreconditions() 
+        public DataBasePreconditions()
         {
             var services = new ServiceCollection();
             services.AddDataAccessMarketplace("Data Source=marketplace.db");

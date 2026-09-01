@@ -16,14 +16,11 @@ public class RefitTests
     private IUserApi api;
 
     [OneTimeSetUp]
-    public void Setup() 
-    { 
+    public void Setup()
+    {
         var services = new ServiceCollection();
         services.AddRefitClient<IUserApi>()
-            .ConfigureHttpClient(c =>
-            {
-                c.BaseAddress = new Uri("https://reqres.in/api");
-            });
+            .ConfigureHttpClient(c => { c.BaseAddress = new Uri("https://reqres.in/api"); });
 
         var provider = services.BuildServiceProvider();
         api = provider.GetRequiredService<IUserApi>();

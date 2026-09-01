@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using ApiTests.Interfaces.DapperTestsInterfaces;
 using ApiTests.DTO.DapperTestsDTO;
 using Microsoft.Data.Sqlite;
@@ -21,7 +18,7 @@ namespace ApiTests.Repositories
         {
             await using var db = new SqliteConnection(_connection);
             var product = await db.QueryFirstOrDefaultAsync<ProductDTO>("SELECT * from Products " +
-                                                                         "WHERE Id = @id", new { id });
+                                                                        "WHERE Id = @id", new { id });
             return product;
         }
     }

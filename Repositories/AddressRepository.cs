@@ -1,8 +1,5 @@
 using Dapper;
 using Microsoft.Data.Sqlite;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using ApiTests.DTO.DapperTestsDTO;
 using ApiTests.Interfaces.DapperTestsInterfaces;
 

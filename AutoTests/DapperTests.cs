@@ -59,7 +59,7 @@ namespace ApiTests.AutoTests
             var categories = await repo.GetCategoriesAsync();
             categories.Should().HaveCount(6);
         }
-        
+
         [Test]
         public async Task Test006GetCorrectProductById()
         {
@@ -73,6 +73,28 @@ namespace ApiTests.AutoTests
                 product.price.Should().Be(74990);
                 product.stock.Should().Be(18);
                 product.categoryId.Should().Be(2);
+            }
+        }
+
+        [Test]
+        public async Task Test007GetCorrectOrderItemsByUser()
+        {
+            var repo = p.Provider.GetService<IOrderRepository>();
+            var order = await repo.GetOrderAsync(1, 1);
+            order.Should().NotBeNull();
+            using (new AssertionScope())
+            {
+                order.status.Should().Be("Delivered");
+                order.orderDate.Should().Be("2026-01-10");
+                order.totalPrice.Should().Be(84980);
+            }
+
+            var orderItems = await repo.GetOrderItemsAsync(1);
+            orderItems.Should().HaveCount(2);
+            using (new AssertionScope())
+            {
+                orderItems.Should().Contain(i => i.productId == 1 && i.quantity == 1 && i.unitPrice == 79990);
+                orderItems.Should().Contain(i => i.productId == 15 && i.quantity == 1 && i.unitPrice == 4990);
             }
         }
 
