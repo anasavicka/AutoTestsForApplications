@@ -9,13 +9,13 @@ namespace ApiTests.AutoTests;
 public class OrderJsonTests
 {
     private OrderDTO order;
-    
+
     [OneTimeSetUp]
     public void Setup()
     {
         var path = Path.Combine(TestContext.CurrentContext.TestDirectory, "Resources", "OrderData.json");
         string json = File.ReadAllText(path);
-        
+
         order = JsonSerializer.Deserialize<OrderDTO>(json);
     }
 
@@ -26,7 +26,8 @@ public class OrderJsonTests
         {
             TestContext.WriteLine($"Result\n{item.ProductId} | {item.Quantity.ToString()} | {item.Price.ToString()}");
         }
-        order.Items.Should().NotBeNull(); 
+
+        order.Items.Should().NotBeNull();
         order.Items.Should().HaveCount(3); // 3 элемента
     }
 
@@ -41,7 +42,7 @@ public class OrderJsonTests
     public void Test3_CheckElectronicsQuantity()
     {
         var hasElectonicsCategory = order.Items.Where(item => item.Category == "Electronics").ToList();
-        
+
         using (new AssertionScope())
         {
             hasElectonicsCategory.Should().OnlyContain(item => item.Category == "Electronics");

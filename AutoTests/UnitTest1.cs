@@ -2,7 +2,7 @@
 using System.Text.Json;
 using ApiTests.DTO;
 
-namespace ApiTests
+namespace ApiTests.AutoTests
 {
     public class UnitTest1
     {
@@ -15,15 +15,17 @@ namespace ApiTests
             {
                 BaseAddress = new Uri("https://reqres.in/api/")
             };
-            client.DefaultRequestHeaders.Add("x-api-key", "free_user_3I3axJsumvjadwRLutWhk0EoQdj");             // free_user_3Hs5R7VxAD3zzrYAcdt3Anqc5bY
-
+            client.DefaultRequestHeaders.Add("x-api-key",
+                "free_user_3I3axJsumvjadwRLutWhk0EoQdj"); // free_user_3Hs5R7VxAD3zzrYAcdt3Anqc5bY
         }
+
         [Test]
         public async Task Test1()
         {
             using HttpResponseMessage response = await client.GetAsync("users/2");
             response.EnsureSuccessStatusCode();
         }
+
         [Test]
         public async Task Test2()
         {
@@ -32,6 +34,7 @@ namespace ApiTests
             UserResponseDto userResponse = JsonSerializer.Deserialize<UserResponseDto>(jsonGet);
             UserDataDto user = userResponse.Data;
         }
+
         [Test]
         public async Task Test3()
         {
@@ -57,8 +60,8 @@ namespace ApiTests
 
             using HttpResponseMessage response = await client.PutAsJsonAsync("users/2", request);
             response.EnsureSuccessStatusCode();
-
         }
+
         [Test]
         public async Task Test5()
         {
@@ -66,6 +69,7 @@ namespace ApiTests
 
             response.EnsureSuccessStatusCode();
         }
+
         [OneTimeTearDown]
         public void TearDown()
         {
