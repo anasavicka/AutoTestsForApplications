@@ -98,6 +98,15 @@ namespace ApiTests.AutoTests
             }
         }
 
+        [Test]
+        public async Task Test008GetDistinctCitiesOfAccessories()
+        {
+            var repo = p.Provider.GetService<IAddressRepository>();
+            var cities = await repo.GetDistinctCitiesByCategoryAsync("Аксессуары");
+            cities.Should().HaveCountGreaterThan(1);
+        }
+
+
         //[Test] //генерация базы - раскомментить, а потом запустить тест разово
         public async Task InitialiseTest()
         {
