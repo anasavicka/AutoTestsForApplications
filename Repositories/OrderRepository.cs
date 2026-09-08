@@ -22,7 +22,7 @@ namespace ApiTests.Repositories
                 new { orderId, userId });
             return order;
         }
-        
+
         public async Task<IEnumerable<OrderItemsDTO>> GetOrderItemsAsync(int orderId)
         {
             await using var db = new SqliteConnection(_connection);
@@ -30,5 +30,19 @@ namespace ApiTests.Repositories
                                                                 + "WHERE OrderId = @orderId", new { orderId });
             return orderItems;
         }
+
+        public async Task<IEnumerable<long>> GetUsersIdByCategoryAsync(int categoryId)
+        {
+            await using var db = new SqliteConnection(_connection);
+            var users = await db.QueryAsync<long>(
+                "SELECT Orders.UserId " +
+                "FROM Categories " +
+                "JOIN Products ON Categories.Id = Products.CategoryId " +
+                "JOIN OrderItems ON Products.Id = OrderItems.ProductId " +
+                "JOIN Orders ON OrderItems.OrderId = Orders.Id " +
+                "WHERE Categories.Id = @categoryId",
+                new { categoryId });
+            return users;
+        }
     }
-}
+} 
