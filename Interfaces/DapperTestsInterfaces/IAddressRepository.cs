@@ -5,5 +5,6 @@ namespace ApiTests.Interfaces.DapperTestsInterfaces
     public interface IAddressRepository
     {
         Task<AddressDTO> GetAddressByUserId(int userId);
+        Task<IEnumerable<string>> GetDistinctCitiesByCategoryAsync(string categoryName);
     }
 }

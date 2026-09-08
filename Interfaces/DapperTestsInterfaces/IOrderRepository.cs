@@ -6,5 +6,6 @@ namespace ApiTests.Interfaces.DapperTestsInterfaces
     {
         Task<OrderDTO> GetOrderAsync(int orderId, int UserId);
         Task<IEnumerable<OrderItemsDTO>> GetOrderItemsAsync(int orderId);
+        Task<IEnumerable<long>> GetUsersIdByCategoryAsync(int categoryId);
     }
 }

@@ -7,6 +7,7 @@ using ApiTests.Interfaces;
 using NUnit.Framework;
 using ApiTests.DTO;
 using System.Net;
+using ApiTests.Interfaces.ProfileUsersInterfaces;
 
 
 namespace ApiTests;

@@ -98,6 +98,23 @@ namespace ApiTests.AutoTests
             }
         }
 
+        [Test]
+        public async Task Test008GetDistinctCitiesOfAccessories()
+        {
+            var repo = p.Provider.GetService<IAddressRepository>();
+            var cities = await repo.GetDistinctCitiesByCategoryAsync("Аксессуары");
+            cities.Should().HaveCountGreaterThan(1);
+        }
+
+        [Test]
+        public async Task Test009CompareTvBuyersAndAccessoriesBuyers()
+        {
+            var repo = p.Provider.GetService<IOrderRepository>();
+            var accessoriesBuyers = await repo.GetUsersIdByCategoryAsync(6);
+            var tvBuyers = await repo.GetUsersIdByCategoryAsync(4);
+            tvBuyers.Should().IntersectWith(accessoriesBuyers);
+        }
+        
         //[Test] //генерация базы - раскомментить, а потом запустить тест разово
         public async Task InitialiseTest()
         {
