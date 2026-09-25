@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ApiTests.Tests;
+using Microsoft.Extensions.DependencyInjection;
+using ApiTests.Modules;
+
+namespace ApiTests.Fixtures
+{
+    public class TestFixture
+    {
+        public ServiceProvider Provider { get; }
+
+        public TestFixture()
+        {
+            var services = new ServiceCollection();
+
+            var dbPath = Path.Combine(AppContext.BaseDirectory, "marketplace.db");
+            var conn = $"Data Source={dbPath}";
+            services.AddDataAccessMarketplace(conn);
+            Provider = services.BuildServiceProvider();
+        }
+    }
+}
