@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ApiTests.Modules;
 
 namespace ApiTests.Fixtures
 {
@@ -15,7 +16,7 @@ namespace ApiTests.Fixtures
 
             var dbPath = Path.Combine(AppContext.BaseDirectory, "marketplace.db");
             var conn = $"Data Source={dbPath}";
-            services.AddDataAccess(conn);
+            services.AddDataAccessMarketplace(conn);
             Provider = services.BuildServiceProvider();
         }
     }

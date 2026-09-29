@@ -21,7 +21,11 @@ namespace ApiTests.ForUI.Pages.Heroku
         {
             await Page.GotoAsync("https://the-internet.herokuapp.com/checkboxes");
         }
-
+        public async Task CheckPageOpenAsync()
+        {
+            await Assertions.Expect(Page).ToHaveTitleAsync("The Internet");
+            await Assertions.Expect(Page).ToHaveURLAsync("https://the-internet.herokuapp.com/checkboxes");
+        }
         public async Task<bool> GetStateOfCheckboxAsync(int number)
         {
             var state = await Checkbox.Nth(number).IsCheckedAsync();
@@ -38,3 +42,4 @@ namespace ApiTests.ForUI.Pages.Heroku
             await Checkbox.Nth(number).CheckAsync();
         }
     };
+}
