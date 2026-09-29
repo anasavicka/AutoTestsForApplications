@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using ApiTests.DTO;
 using Refit;
 
-namespace ApiTests.Interfaces
+namespace ApiTests.Interfaces.ProfileUsersInterfaces
 {
     [Headers("x-api-key: free_user_3I3axJsumvjadwRLutWhk0EoQdj")]
     public interface IUserApi
