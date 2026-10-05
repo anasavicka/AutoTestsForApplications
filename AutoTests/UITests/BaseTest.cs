@@ -1,11 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Playwright;
 using ApiTests.ForUI.Framework;
-
 
 namespace ApiTests.AutoTests.UITests
 {
@@ -25,7 +24,7 @@ namespace ApiTests.AutoTests.UITests
         {
             Page = await Fixture.Browser.NewPageAsync(new BrowserNewPageOptions
             {
-                ViewportSize = null
+                ViewportSize = ViewportSize.NoViewport
             });
         }
 
@@ -40,5 +39,15 @@ namespace ApiTests.AutoTests.UITests
         {
             await Fixture.DisposeAsync();
         }
+
+        /*protected ILocatorAssertions Expect(ILocator locator)
+        {
+            return Assertions.Expect(locator);
+        }
+
+        protected IPageAssertions Expect(IPage page)
+        {
+            return Assertions.Expect(page);
+        }*/
     }
 }

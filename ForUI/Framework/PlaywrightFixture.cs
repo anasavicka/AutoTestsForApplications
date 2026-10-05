@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +25,7 @@ namespace ApiTests.ForUI.Framework
 
         public async ValueTask DisposeAsync()
         {
-            if(Browser!=null)
+            if (Browser != null)
             {
                 await Browser.CloseAsync();
             }
