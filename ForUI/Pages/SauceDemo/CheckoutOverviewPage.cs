@@ -16,14 +16,17 @@ namespace ApiTests.ForUI.Pages.SauceDemo
         {
             Page = page;
         }
+        
         public async Task<string> GetTextFromOverviewPageCheckMessageAsync()
         {
             return await OverviewCheckMessage.TextContentAsync();
         }
+        
         public async Task<Boolean> IsItemInPageAsync(string itemName)
         {
             return await ItemByName(itemName).IsVisibleAsync();
         }
+        
         public async Task FinishAsync()
         {
             await FinishButton.ClickAsync();

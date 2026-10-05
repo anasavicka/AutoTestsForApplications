@@ -14,6 +14,7 @@ namespace ApiTests.ForUI.Pages.SauceDemo
         {
             Page = page;
         }
+        
         public async Task<string> GetTextFromCompleteHeaderCheckMessageAsync()
         {
             return await CompleteHeader.TextContentAsync();

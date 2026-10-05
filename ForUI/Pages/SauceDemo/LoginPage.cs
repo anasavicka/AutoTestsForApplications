@@ -20,6 +20,7 @@ namespace ApiTests.ForUI.Pages.SauceDemo
         {
             await Page.GotoAsync("https://www.saucedemo.com");
         }
+        
         public async Task FillLoginFormAsync(string username, string password)
         {
             await LoginInput.FillAsync(username);

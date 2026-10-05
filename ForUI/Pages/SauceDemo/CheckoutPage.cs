@@ -17,10 +17,12 @@ namespace ApiTests.ForUI.Pages.SauceDemo
         {
             Page = page;
         }
+        
         public async Task<string> GetTextFromYourInformationCheckMessageAsync()
         {
             return await YourInformationCheckMessage.TextContentAsync();
         }
+        
         public async Task CheckoutFormAsync(string firstName, string lastName, string code)
         {
             await FirstNameInput.FillAsync(firstName);
